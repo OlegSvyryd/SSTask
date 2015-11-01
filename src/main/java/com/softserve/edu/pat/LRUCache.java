@@ -84,11 +84,25 @@ public class LRUCache<K, V> extends Cache<K, V>{
 
     @Override
     public boolean equals(Object o) {
-        return false;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+
+        LRUCache lruCache = (LRUCache) o;
+
+        if (ACCESS_ORDER != lruCache.ACCESS_ORDER) return false;
+        if (CAPACITY != lruCache.CAPACITY) return false;
+        if (Float.compare(lruCache.LOAD_FACTOR, LOAD_FACTOR) != 0) return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return 0;
+        int result = super.hashCode();
+        result = 31 * result + CAPACITY;
+        result = 31 * result + (LOAD_FACTOR != +0.0f ? Float.floatToIntBits(LOAD_FACTOR) : 0);
+        result = 31 * result + (ACCESS_ORDER ? 1 : 0);
+        return result;
     }
 }

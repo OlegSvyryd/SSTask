@@ -9,7 +9,10 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by ol on 31.10.2015.
+ * Thread-safe collection (key-value pair)
+ * @param <K> Key in collection
+ * @param <V> Value in collection
+ * @author ol
  */
 public abstract class Cache<K, V> {
 
@@ -160,20 +163,41 @@ public abstract class Cache<K, V> {
 
     // Comparison and hashing
 
+
     /**
      * Compares the specified object with this map for equality.
      *
      * @param o object to be compared for equality with this map
      * @return true if the specified object is equal to this map
      */
-    public abstract boolean equals(Object o);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Cache cache = (Cache) o;
+
+        if (capacity != cache.capacity) return false;
+        if (timelife != cache.timelife) return false;
+        if (!cacheMap.equals(cache.cacheMap)) return false;
+        if (!scheduler.equals(cache.scheduler)) return false;
+
+        return true;
+    }
 
     /**
      * Returns the hash code value for this map.
      *
      * @return the hash code value for this map
      */
-    public abstract int hashCode();
+    @Override
+    public int hashCode() {
+        int result = capacity;
+        result = 31 * result + (int) (timelife ^ (timelife >>> 32));
+        result = 31 * result + cacheMap.hashCode();
+        result = 31 * result + scheduler.hashCode();
+        return result;
+    }
 
     /**
      * Key instance of cache.

@@ -73,11 +73,19 @@ public class ReplaceOldestCache<K, V> extends Cache<K, V> {
 
     @Override
     public boolean equals(Object o) {
-        return false;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ReplaceOldestCache that = (ReplaceOldestCache) o;
+
+        if (keyInsertionOrder != null ? !keyInsertionOrder.equals(that.keyInsertionOrder) : that.keyInsertionOrder != null)
+            return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return 0;
+        return keyInsertionOrder != null ? keyInsertionOrder.hashCode() : 0;
     }
 }

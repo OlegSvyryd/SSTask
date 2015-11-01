@@ -5,10 +5,16 @@ import com.softserve.edu.pat.Cache;
 import java.util.Map;
 
 /**
- * Created by ol on 01.11.2015.
+ * Additional features from testing
+ * @author ol
  */
 public class SleepAndDisplay {
-    protected static void sleep(long milliseconds) {
+
+    /**
+     * Sleep thread
+     * @param milliseconds Time to sleeping (in ms.)
+     */
+    static void sleep(long milliseconds) {
         try {
             Thread.sleep(milliseconds);
         } catch (InterruptedException e) {
@@ -16,12 +22,20 @@ public class SleepAndDisplay {
         }
     }
 
+    /**
+     * Display entry on console
+     * @param cacheStorage Instance of cache
+     */
     static void display(Cache<Integer, String> cacheStorage) {
         for(Map.Entry entry : cacheStorage.entrySet()) {
             System.out.println("   " + entry);
         }
     }
 
+    /**
+     * Display entry keys on console
+     * @param cacheStorage Instance of cache
+     */
     static void displayKeys(Cache<Integer, String> cacheStorage) {
         for(Map.Entry entry : cacheStorage.entrySet()) {
             System.out.println("   " + entry.getKey());

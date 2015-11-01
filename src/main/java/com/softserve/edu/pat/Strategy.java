@@ -12,7 +12,7 @@ public enum Strategy {
 
     /**
      * The entry which was accessed through get(Object key) method for the least
-     * number of times is removed from the cache and new one is inserted instead
+     * number of times is removed from the cache and new one is inserted instead.
      */
     REPLACE_LEAST_USED
 }
