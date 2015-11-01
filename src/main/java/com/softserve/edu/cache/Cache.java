@@ -1,4 +1,4 @@
-package com.softserve.edu.pat;
+package com.softserve.edu.cache;
 
 import java.util.Iterator;
 import java.util.Map;

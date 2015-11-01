@@ -1,4 +1,4 @@
-package com.softserve.edu.pat;
+package com.softserve.edu.cache;
 
 /**
  * Factory for get cache instance

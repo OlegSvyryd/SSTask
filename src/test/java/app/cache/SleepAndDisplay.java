@@ -1,6 +1,6 @@
 package app.cache;
 
-import com.softserve.edu.pat.Cache;
+import com.softserve.edu.cache.Cache;
 
 import java.util.Map;
 

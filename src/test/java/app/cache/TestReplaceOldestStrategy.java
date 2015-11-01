@@ -1,8 +1,8 @@
 package app.cache;
 
-import com.softserve.edu.pat.Cache;
-import com.softserve.edu.pat.CacheFactory;
-import com.softserve.edu.pat.Strategy;
+import com.softserve.edu.cache.Cache;
+import com.softserve.edu.cache.CacheFactory;
+import com.softserve.edu.cache.Strategy;
 import org.junit.*;
 import org.junit.Assert;
 import org.junit.runners.MethodSorters;

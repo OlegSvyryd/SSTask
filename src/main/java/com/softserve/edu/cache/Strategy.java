@@ -1,4 +1,4 @@
-package com.softserve.edu.pat;
+package com.softserve.edu.cache;
 
 /**
  * This enumeration define displacement strategy
